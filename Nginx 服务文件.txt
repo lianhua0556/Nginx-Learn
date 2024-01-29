@@ -1,0 +1,22 @@
+配置 Nginx 服务文件
+
+在 /etc/systemd/system/ 目录下创建一个新的服务文件，例如 nginx.service：
+
+vi /etc/systemd/system/nginx.service
+在打开的文件中，添加以下内容：
+
+[Unit]
+Description=Nginx HTTP Server
+After=network.target
+[Service]
+Type=forking
+ExecStart=/usr/local/nginx/sbin/nginx
+ExecReload=/usr/local/nginx/sbin/nginx -s reload
+ExecStop=/usr/local/nginx/sbin/nginx -s stop
+PrivateTmp=true
+[Install]
+WantedBy=multi-user.target
+
+执行以下命令重新加载 systemd 配置文件：
+
+systemctl daemon-reload
