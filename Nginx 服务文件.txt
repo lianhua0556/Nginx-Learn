@@ -1,4 +1,4 @@
-配置 Nginx 服务文件
+配置 Nginx 服务文件hahahahah
 
 在 /etc/systemd/system/ 目录下创建一个新的服务文件，例如 nginx.service：
 
